@@ -7,10 +7,10 @@ const DATA = [
     name: "Starship",
     cost: 149999,
     crew: 1,
-
     maxAtmSpeed: 1050,
     HyperDRat: 1,
-    MaxMLh: 100
+    MaxMLh: 100,
+    color: "green"
   }
 ];
 const Range = {
@@ -24,18 +24,21 @@ const Range = {
 };
 
 const basicFormat = format(".2r");
-const wideFormat = format(".3r");
+const wideFormat = format(".2r");
 
 export default function BasicRadarChart(props) {
   return (
     <RadarChart
       data={DATA}
       tickFormat={t => wideFormat(t)}
-      startingAngle={0}
+      startingAngle={300}
+      width={props.width}
+      height={props.height}
       domains={[
         {
           name: "Cost",
           domain: [0, Range.cost],
+
           tickFormat: t => `${basicFormat(t / 1000)}`,
           getValue: d => d.cost
         },
@@ -59,8 +62,42 @@ export default function BasicRadarChart(props) {
           getValue: d => d.MaxMLh
         }
       ]}
-      width={400}
-      height={400}
+      style={{
+        plot: {
+          fill: "white",
+          stroke: "green",
+          strokeWidth: "5"
+        },
+        labels: {
+          fontSize: 12,
+          textAnchor: "middle",
+          fill: "#00ff00"
+        },
+        polygons: {
+          fillOpacity: 0.5,
+          strokeOpacity: 1,
+          strokeWidth: 2,
+          fill: "#ff0000"
+        },
+        line: {
+          color: "blue"
+        }
+        // axes: {
+        //   strokeWidth: 2,
+
+        //   line: {
+
+        //     fillOpacity: 0.8,
+        //     strokeWidth: 2,
+        //     strokeOpacity: 0.8
+        //   },
+        //   ticks: {
+        //     fillOpacity: 1,
+        //     strokeOpacity: 0
+        //   },
+        //   text: {}
+        // }
+      }}
     />
   );
 }
