@@ -1,6 +1,6 @@
 import React from "react";
 import { format } from "d3-format";
-import { RadarChart } from "react-vis";
+import { RadarChart, FlexibleWidthXYPlot } from "react-vis";
 
 const DATA = [
   {
@@ -29,6 +29,7 @@ const wideFormat = format(".2r");
 export default function BasicRadarChart(props) {
   return (
     <RadarChart
+      margin={{ left: 60, right: 60, top: 60, bottom: 60 }}
       data={DATA}
       tickFormat={t => wideFormat(t)}
       startingAngle={300}
@@ -36,30 +37,38 @@ export default function BasicRadarChart(props) {
       height={props.height}
       domains={[
         {
-          name: "Cost",
           domain: [0, Range.cost],
-
           tickFormat: t => `${basicFormat(t / 1000)}`,
-          getValue: d => d.cost
+          getValue: d => d.cost,
+          name: "Cost"
         },
-        { name: "Crew", domain: [0, Range.Crew], getValue: d => d.crew },
         {
-          name: "Max Atm. Speed",
+          // name: "Crew",
+
+          domain: [0, Range.Crew],
+          getValue: d => d.crew,
+          name: "Crew"
+        },
+        {
+          // name: "Max Atm. Speed",
           domain: [0, Range["Max Atm. Speed"]],
           tickFormat: t => `${basicFormat(t)}`,
-          getValue: d => d.maxAtmSpeed
+          getValue: d => d.maxAtmSpeed,
+          name: "Max Atm. Speed"
         },
         {
-          name: "HyperD Rat",
+          // name: "HyperD Rat",
           domain: [0, Range["HyperD Rat"]],
           tickFormat: t => `${basicFormat(t)}`,
-          getValue: d => d.HyperDRat
+          getValue: d => d.HyperDRat,
+          name: "HyperD Rat"
         },
         {
-          name: "Max ML/h",
+          // name: "Max ML/h",
           domain: [0, Range["Max ML/h"]],
           tickFormat: t => `${basicFormat(t)}`,
-          getValue: d => d.MaxMLh
+          getValue: d => d.MaxMLh,
+          name: "HyperD Rat"
         }
       ]}
       style={{
