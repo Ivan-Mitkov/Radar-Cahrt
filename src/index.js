@@ -4,21 +4,24 @@ import Demo from "./demo";
 import "./styles.css";
 
 function App() {
+  const WIDTH = 350;
+  const HIGHT = 350;
   return (
     <div className="App" style={{}}>
       <div
         style={{
-          background: "pink",
+          // background: "pink",
           margin: "10px",
           padding: "12px",
-
-          diplsay: "flex",
-          alignItems: "center",
-          justifyContent: "center"
-          // zIndex: 100
+          // opacity: "0.8",
+          // diplsay: "flex",
+          // alignItems: "center",
+          // justifyContent: "flex-start",
+          width: WIDTH,
+          height: HIGHT
         }}
       >
-        <Demo width={350} height={350} style={{ }} />
+        <Demo width={WIDTH} height={HIGHT} />
       </div>
     </div>
   );
