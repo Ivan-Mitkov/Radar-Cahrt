@@ -13,7 +13,7 @@ const DATA = [
     fillOpacity: 0.1,
     strokeOpacity: 0.1,
     strokeWidth: 2,
-    fill: "#dddddd",
+    fill: "#cccccc",
     stroke: 2
   },
   {
@@ -26,7 +26,7 @@ const DATA = [
     fillOpacity: 0.1,
     strokeOpacity: 0.1,
     strokeWidth: 2,
-    fill: "#eeeeee",
+    fill: "#dddddd",
     stroke: 2
   },
   {
@@ -39,7 +39,7 @@ const DATA = [
     fillOpacity: 0.1,
     strokeOpacity: 0.1,
     strokeWidth: 2,
-    fill: "#bbbbbb",
+    fill: "#eeeeee",
     stroke: 2
   },
   {
@@ -52,7 +52,7 @@ const DATA = [
     fillOpacity: 0.1,
     strokeOpacity: 0.5,
     strokeWidth: 2,
-    fill: "#aa00aa",
+    fill: "#aaaaaa",
     stroke: 2
   }
 ];
@@ -85,7 +85,9 @@ export default function BasicRadarChart(props) {
           textAnchor: "middle",
           fill: "#00ff00"
         },
-        polygons: {},
+        polygons: {
+          stroke: "coral"
+        },
         axes: {
           line: {
             // fill: "black",
